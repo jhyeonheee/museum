@@ -1,0 +1,194 @@
+@charset "utf-8";
+@import url('reset.css');
+
+
+#wrap {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: azure;
+
+}
+
+#wrap .header {
+    width: 100%;
+    background-color: aquamarine;
+}
+
+#wrap .header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 100px; */
+}
+
+#wrap .header .inner .logo {
+    width: 100px;
+
+}
+
+#wrap .header .inner .logo a {
+    display: block;
+}
+
+#wrap .header .inner .logo a img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#wrap .header .inner .nav {}
+
+#wrap .header .inner .nav .gnb {
+    display: flex;
+}
+
+#wrap .header .inner .nav .gnb li {
+    position: relative;
+
+}
+
+#wrap .header .inner .nav .gnb>li .depth-02 {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: black;
+    color: white;
+    border: 1px solid #ddd;
+    min-width: 150px;
+    z-index: 100;
+}
+
+#wrap .header .inner .nav .gnb>li .depth-02 li a {
+    display: block;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+#wrap .header .inner .nav .gnb li .depth-01 {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px;
+    display: block;
+}
+
+#wrap .header .inner .nav .gnb li:hover .depth-02 {
+    display: block;
+}
+
+#wrap .header .inner .nav .gnb li .depth-01 .depth-02 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+#wrap .header .inner .nav .gnb li .depth-01 .depth-02 li {}
+
+#wrap .header .inner .utill {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+#wrap .header .inner .nav .gnb>li .depth-02 li a {
+    display: block;
+    position: relative;
+    /* ✅ 클릭 영역을 li 전체로 */
+    width: 100%;
+    /* ✅ li 폭 기준 */
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #181818;
+    background: #ffffff;
+    transition: color 0.2s ease;
+    box-sizing: border-box;
+}
+
+#wrap .header .inner .nav .gnb>li .depth-02 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    min-width: 180px;
+    /* 드롭다운 전체 폭 */
+}
+
+
+
+#wrap .header .inner .nav .gnb>li .depth-02 li a:hover {
+    position: relative;
+    /* ::after 위치 기준 */
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+    background: #d4d4d4;
+    transition: color 1s ease;
+}
+
+#wrap .header .inner .nav .gnb>li .depth-02 li a::after {
+    width: 100%;
+}
+
+#wrap .header .inner .utill li {}
+
+#wrap .header .inner .utill li img {
+    width: 23px;
+
+}
+
+#fullpage {}
+
+#fullpage .section#section0 {
+    background-color: rgb(40, 121, 94);
+}
+
+#fullpage .intro {}
+
+#fullpage .intro .intro_header {}
+
+#fullpage .intro .inner {}
+
+#fullpage .intro .inner .logo {}
+
+#fullpage .intro .inner .logo a {}
+
+#fullpage .intro .inner .logo a img {}
+
+#fullpage .intro .inner .world {}
+
+#fullpage .intro .inner .world img {}
+
+#fullpage .intro .inner .title {}
+
+#fullpage .intro .inner .title h2 {}
+
+#fullpage .intro .inner .title p {}
+
+#fullpage .intro .inner .intro_item {}
+
+#fullpage .intro .inner .intro_item .swiper.intro {}
+
+#fullpage .intro .intro_item .swiper.intro .swiper-wrapper {
+    display: flex;
+}
+
+#fullpage .intro .intro_item .swiper.intro .swiper-wrapper .swiper-slide {}
+
+#fullpage .intro .intro_item .swiper.intro .swiper-wrapper .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#fullpage .intro .intro_item .image {}
+
+#fullpage .intro .intro_item .image img {}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국립중앙박물관</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="lib/fullpage.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="lib/fullpage.js"></script>
+    <script>
+        window.onload = () => {
+            var myFullpage = new fullpage('#fullpage', {
+                /* 삭제가능(스타일) : sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'], */
+                anchors: ['주소창을', '한번', '봐라'], //주소창에 있는 이름
+                navigation: true,
+                navigationTooltips: ['Page 1', 'Page 2', 'Any text!'], // nav에 노출되는 텍스트
+                showActiveTooltip: true, // true: 그냥 보여짐 false: 마우스 호버 보여짐
+                //menu: '#menu'
+            });//script end
+
+            var swiper = new Swiper(".intro", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            }); /* intro */
+        };//script end
+
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="img/icon/logo.svg" alt="museum">
+                    </a>
+                </h1><!-- .logo end -->
+
+                <nav class="nav">
+                    <ul class="gnb">
+
+                        <li>
+                            <a href="#" class="depth-01">관람 정보</a>
+                            <ul class="depth-02">
+                                <li><a href="#">관람 안내</a></li>
+                                <li><a href="#">전시해설</a></li>
+                                <li><a href="#">예약하기</a></li>
+                                <li><a href="#">관람·편의시설</a></li>
+                                <li><a href="#">접근성 안내</a></li>
+                                <li><a href="#">오시는 길</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">전시</a>
+                            <ul class="depth-02">
+                                <li><a href="#">상설 전시</a></li>
+                                <li><a href="#">특별 전시</a></li>
+                                <li><a href="#">디지털 실감 영상관</a></li>
+                                <li><a href="#">공간 오감</a></li>
+                                <li><a href="#">온라인 전시관</a></li>
+                                <li><a href="#">우리문화유산 국외 전시</a></li>
+                                <li><a href="#">소속 국립박물관 전시</a></li>
+                                <li><a href="#">전시도록</a></li>
+                                <li><a href="#">외국박물관 소장 한국문화유산</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">교육</a>
+                            <ul class="depth-02">
+                                <li><a href="#">일반교육(MODU)</a></li>
+                                <li><a href="#">전문교육(뮤지엄 아카데미)</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">문화행사</a>
+                            <ul class="depth-02">
+                                <li><a href="#">행사</a></li>
+                                <li><a href="#">공연</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">소장품</a>
+                            <ul class="depth-02">
+                                <li><a href="#">큐레이터 추천 소장품</a></li>
+                                <li><a href="#">소장품 검색</a></li>
+                                <li><a href="#">국보·보물 검색</a></li>
+                                <li><a href="#">3D 데이터 검색</a></li>
+                                <li><a href="#">수어 동영상</a></li>
+                                <li><a href="#">음성 안내</a></li>
+                                <li><a href="#">소장품 열람·복제</a></li>
+                                <li><a href="#">소장품 대여 안내</a></li>
+                                <li><a href="#">문화유산 기증 안내</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">학술행사·출판</a>
+                            <ul class="depth-02">
+                                <li><a href="#">학술행사</a></li>
+                                <li><a href="#">정기간행물</a></li>
+                                <li><a href="#">고고학</a></li>
+                                <li><a href="#">역사학</a></li>
+                                <li><a href="#">미술사학</a></li>
+                                <li><a href="#">아시아학</a></li>
+                                <li><a href="#">보존과학</a></li>
+                                <li><a href="#">박물관 교육</a></li>
+                                <li><a href="#">일제 강점기 조사 자료</a></li>
+                                <li><a href="#">이건희 기증품</a></li>
+                                <li><a href="#">도서관</a></li>
+                                <li><a href="#">기타</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">소식·참여</a>
+                            <ul class="depth-02">
+                                <li><a href="#">소식</a></li>
+                                <li><a href="#">영상</a></li>
+                                <li><a href="#">자원봉사 안내</a></li>
+                                <li><a href="#">청년멘토</a></li>
+                                <li><a href="#">학예사 자격증 안내</a></li>
+                                <li><a href="#">전자민원</a></li>
+                                <li><a href="#">정보공개</a></li>
+                                <li><a href="#">소식지</a></li>
+                                <li><a href="#">시설 안전 제안 창구</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                        <li>
+                            <a href="#" class="depth-01">박물관 소개</a>
+                            <ul class="depth-02">
+                                <li><a href="#">인사말</a></li>
+                                <li><a href="#">비전과 전략</a></li>
+                                <li><a href="#">발자취</a></li>
+                                <li><a href="#">조직 및 업무</a></li>
+                                <li><a href="#">시설 소개</a></li>
+                                <li><a href="#">수장고</a></li>
+                                <li><a href="#">박물관 관련 자료</a></li>
+                                <li><a href="#">문화유산 표준관리시스템</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+
+                    </ul><!-- .gnb end -->
+                </nav><!-- .nav end -->
+
+                <ul class="utill">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#"><img src="img/icon/search.svg" alt="찾기"></a></li>
+                    <li><button><img src="img/icon/world.svg" alt="언어 변경"></button></li>
+                </ul><!-- .utill end -->
+            </div><!-- .inner end -->
+        </header><!-- .header end -->
+
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <div class="intro">
+                    <header class="intro_header">
+                        <div class="inner">
+                            <h1 class="logo">
+                                <a href="#">
+                                    <img src="img/icon/logo.svg" alt="museum">
+                                </a>
+                            </h1><!-- .logo end -->
+
+                            <button class="world">
+                                <img src="img/icon/world.svg" alt="언어 변경">
+                            </button>
+                        </div><!-- .inner end -->
+                    </header><!-- .intro_header end -->
+
+                    <div class="title">
+                        <h2>국립중앙박물관</h2>
+                        <p>역사와 문화가 살아 숨쉬고, 과거와 현재, 미래가 공존하는 감동의 공간</p>
+                    </div><!-- .title end -->
+
+                    <div class="intro_item">
+                        <div class="swiper intro">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/유물_달항아리.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_청동주전자.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_주먹도끼.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_청동향로.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_빗살무늬토기.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_사유반가상.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_청동길쭉도자기.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_옥새.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+
+                                <div class="swiper-slide">
+                                    <img src="img/유물_청동요강.png" alt="유물">
+                                </div><!-- .swiper-slide end -->
+                            </div><!-- .swiper-wrapper end -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div><!-- .swiper intro end -->
+
+                        <div class="image">
+                            <img src="img/전시대2 10.png" alt="전시대">
+                        </div><!-- .image end -->
+                    </div><!-- .intro_item end -->
+
+                </div><!-- .intro end -->
+            </div><!-- .section#section0 end -->
+
+            <section class="section" id="section1">
+                <main class="main">
+
+                </main><!-- .main end -->
+            </section><!-- .section#section1 end -->
+
+        </div><!-- #fullpage end -->
+
+
+        <div class="bottom_nav">
+
+        </div><!-- .bottom_nav end -->
+
+        <footer class="footer">
+
+        </footer><!-- .footer end -->
+    </div><!-- #wrap end -->
+</body>
+
+</html>
