@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>국립중앙박물관</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="lib/fullpage.css">
+    <link rel="stylesheet" href="css/main.css">
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -16,19 +18,85 @@
             var myFullpage = new fullpage('#fullpage', {
                 /* 삭제가능(스타일) : sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'], */
                 anchors: ['주소창을', '한번', '봐라'], //주소창에 있는 이름
-                navigation: true,
-                navigationTooltips: ['Page 1', 'Page 2', 'Any text!'], // nav에 노출되는 텍스트
-                showActiveTooltip: true, // true: 그냥 보여짐 false: 마우스 호버 보여짐
+                navigation: false,
+                /* navigationTooltips: ['Page 1', 'Page 2', 'Any text!'], // nav에 노출되는 텍스트 */
+                showActiveTooltip: false, // true: 그냥 보여짐 false: 마우스 호버 보여짐
+                scrollingSpeed: 700,//애니메이션 속도
+                autoScrolling: true, //자동 스크롤
+                fitToSection: true, // 한 번 스크롤 =  섹션 이동
+                easingcss3: 'ease-in-out', // 부드럽게
+                normalScrollElements: '.swiper', // 예외 요소 제거
                 //menu: '#menu'
             });//script end
 
-            var swiper = new Swiper(".intro", {
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
+            var swiper = new Swiper(".swiper.intro", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                grabCursor: true,
+                centeredSlides: true,
+                loop: false,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
                 },
-            }); /* intro */
+            });//intro end
+
+            var swiper = new Swiper(".mainVisual", {
+                slidesPerView: 5.5,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            }); //mainVisual end
+
+            // script-mainVisual
+            let mainVisualTitle = document.querySelector('.main_visual .text .title');
+            let mainVisualText = document.querySelector('.main_visual .text');
+            let mainVisualImage = document.querySelector('.main_visual img');
+
+            let item = document.querySelectorAll('.swiper-slide');
+            let itemTitle = document.querySelectorAll('.swiper-slide .title.in');
+            let itemText = document.querySelectorAll('.swiper-slide .text');
+            let itemImage = document.querySelectorAll('.swiper-slide img');
+
+            for (let i = 0; i < item.length; i++) {
+
+                item[i].addEventListener('click', () => {
+                    console.log(i)
+
+                    item.forEach(itemIndex => {
+                        itemIndex.classList.remove('active')
+                    });
+
+                    item[i].classList.add('active')
+
+                    mainVisualTitle.innerHTML = itemTitle[i].innerHTML;
+                    mainVisualText.innerHTML = itemText[i].innerHTML;
+
+                    mainVisualImage.src = itemImage[i].src
+
+                });
+            }; //for()
+
+            var swiper = new Swiper(".img", {
+                slidesPerView: 2.5,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            }); // 전시 슬라이드
+
+           
+
+
+
         };//script end
+
+
+
 
     </script>
 </head>
@@ -224,8 +292,7 @@
                                     <img src="img/유물_청동요강.png" alt="유물">
                                 </div><!-- .swiper-slide end -->
                             </div><!-- .swiper-wrapper end -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div><!-- .swiper intro end -->
 
                         <div class="image">
@@ -236,23 +303,429 @@
                 </div><!-- .intro end -->
             </div><!-- .section#section0 end -->
 
-            <section class="section" id="section1">
+            <div class="section" id="section1">
                 <main class="main">
+                    <section class="section01">
+                        <div class="sec1_inner">
+                            <div class="main_visual">
+                                <img src="img/mainvisual(1).jpg" alt="main_visual">
+                                <h2 class="title in">각角진 백자 이야기</h2><!-- .title end -->
+                                <div class="text">
+                                    <p class="min_title">2025.08.25 - 2026.06.21</p><!-- .min_title end -->
+                                    <span class="info">조선 17세기, 그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다. 물레로 만든 그릇의 겉면을 팔각八角 내지 드물게
+                                        육각六角이나 십각十角으로 ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서, 모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을
+                                        함께 느껴보았으면 합니다.</span><!-- .info end -->
+                                </div><!-- .text end -->
+                            </div><!-- .main_visual end -->
 
+                            <div class="swiper mainVisual">
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide active">
+                                        <img src="img/mainvisual(1).jpg" alt="main_visual">
+                                        <h2 class="title">각角진 백자 이야기</h2><!-- .title end -->
+                                        <h2 class="title in">각角진 백자 이야기</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.08.25 - 2026.06.21</p><!-- .min_title end -->
+                                            <span class="info">조선 17세기, 그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다. 물레로 만든 그릇의 겉면을
+                                                팔각八角 내지 드물게
+                                                육각六角이나 십각十角으로 ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서, 모깎기 기법으로 각과 면이 조화된 백자의
+                                                은근한 멋을
+                                                함께
+                                                느껴보았으면 합니다.</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(2).jpg" alt="main_visual">
+                                        <h2 class="title">두 발로 세계를 제패하다</h2><!-- .title end -->
+                                        <h2 class="title in">두 발로 세계를 제패하다</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.07.25 - 2025.12.28</p><!-- .min_title end -->
+
+                                            <span class="info">1936년 베를린 올림픽에서 조국을 가슴에 품고 달렸던 손기정 선수와 그의 발자취를 따라 세계 무대에서
+                                                활약한 제자들의 이야기, 그리고 1988년 서울에서 성화를 봉송했던 감동의 순간들을
+                                                담았습니다.</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(3).jpg" alt="main_visual">
+                                        <h2 class="title">그리스가 로마에게</h2><!-- .title end -->
+                                        <h2 class="title in">그리스가 로마에게, 로마가 그리스에게</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2023.06.15 - 2027.05.30</p><!-- .min_title end -->
+
+                                            <span class="info"> 고대 그리스와 로마는 각각 역동적인 역사와 풍요로운 문화를 가졌음에도 두 나라를 이렇게 함께 묶어
+                                                이야기하는 까닭은 무엇일까요. 이번 전시는 이러한 질문을 품고 고대 그리스와 로마의 문화를 신화의 세계, 인간의 세상, 그림자의
+                                                제국이라는 세 가지 주제로 나누어 살펴봅니다.</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(4).jpg" alt="main_visual">
+                                        <h2 class="title">우리 공예의 아름다움</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.10.01, 15:00 ~ 16:30</p><!-- .min_title end -->
+                                            <h2 class="title in">제 1회 우리 공예의 아름다움</h2>
+                                            <span class="info">전통문화에 대한 이해를 심화시키고 창의적인 해석과 적용을 유도하기 위한
+                                                특강</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(5).jpg" alt="main_visual">
+                                        <h2 class="title">알기 덜기 잇기</h2><!-- .title end -->
+                                        <h2 class="title in">알기 잇기 덜기 문화유산 마음</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2024.11.19 ~</p><!-- .min_title end -->
+                                            <span class="info">문화유산을 감상하는 방법은 다양해요. 사람마다 갖는 관심과 생각이 다르기 때문이지요.
+                                                문화유산을 감상하며 ‘마음’을 느낀 때는 언제인가요?
+                                                문화유산에 담긴 마음과 내가 느낌 마음을 서로 연결하여 표현하고 이야기를 나눠 보세요</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(6).jpg" alt="main_visual">
+                                        <h2 class="title">뮤지엄 아카데미 6기</h2><!-- .title end -->
+                                        <h2 class="title in">국립중앙박물관 뮤지엄 아카데미 6기 참가자 모집</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.10.28 - 2025.11.14</p><!-- .min_title end -->
+                                            <span class="info">국·공립박물관, 국·공립미술관에 재직 중인 학예인력을 위한 뮤지엄
+                                                교육</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(7).jpg" alt="main_visual">
+                                        <h2 class="title">디 아트스팟 시리즈</h2><!-- .title end -->
+                                        <h2 class="title in">2025 문화공간활용 전통공연 [디 아트스팟 시리즈]</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.10.05 - 2025.10.09</p><!-- .min_title end -->
+
+                                            <span class="info">우리 유산의 얼이 깃든 문화공간, 국립중앙박물관에서 펼쳐지는 디 아트스팟 시리즈.
+                                                계절도 마음도 무르익는 10월 추석연휴에 펼쳐지는 전통공연의 향연! '유형무산'의 보물창고 박물관에서, 우리의 소중한 보물
+                                                '무형유산'을 느껴보세요.
+                                            </span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                    <div class="swiper-slide">
+                                        <img src="img/mainvisual(8).jpg" alt="main_visual">
+                                        <h2 class="title">서화로 시대를 읽다</h2><!-- .title end -->
+                                        <h2 class="title in">박물관과 함께하는 역사문화탐구 '서화로 시대를 읽다'</h2><!-- .title end -->
+                                        <div class="text">
+                                            <p class="min_title">2025.09.30, 14:00 ~ 17:45</p><!-- .min_title end -->
+                                            <span class="info">국립중앙박물관에서 박물관과 함께하는 역사문화탐구 강연회를 개최합니다.
+                                                이 프로그램은 국립중앙박물관을 비롯한 전국 13개 소속박물관과의 다양한 소장품을 국민에게 널리 소개하여 쉽게 이해할 수 있도록
+                                                마련되었습니다. 서로 관련 있는 문화유산과 주제들에 대해 자유롭고 편안한 분위기 속에서 함께 이야기하고, 소통하는 시간을 갖고자
+                                                합니다.</span><!-- .info end -->
+                                        </div><!-- .text end -->
+                                    </div><!-- swiper-slide end -->
+
+                                </div><!-- swiper-wrapper end -->
+                                <div class="swiper-pagination"></div>
+                            </div><!-- swiper mainVisual end -->
+
+
+                        </div><!-- .sec1_inner end -->
+                    </section><!-- .section01 end -->
+
+                    <section class="section02">
+
+                        <div class="inner">
+                            <div class="left">
+                                <h3>23</h3>
+                                <p>오늘은 휴관일</p>
+                            </div><!-- .left end -->
+                            <div class="right">
+
+                                <div class="date">
+                                    <h4>23</h4>
+                                    <span>화</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>24</h4>
+                                    <span>수</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>25</h4>
+                                    <span>목</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>26</h4>
+                                    <span>금</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>27</h4>
+                                    <span>토</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>28</h4>
+                                    <span>일</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>29</h4>
+                                    <span>월</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>30</h4>
+                                    <span>화</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>1</h4>
+                                    <span>수</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>2</h4>
+                                    <span>목</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>3</h4>
+                                    <span>금</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>4</h4>
+                                    <span>토</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>5</h4>
+                                    <span>일</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>6</h4>
+                                    <span>월</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>7</h4>
+                                    <span>화</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>8</h4>
+                                    <span>수</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>9</h4>
+                                    <span>목</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>10</h4>
+                                    <span>금</span>
+                                </div><!-- .date end -->
+
+                                <div class="date">
+                                    <h4>11</h4>
+                                    <span>토</span>
+                                </div><!-- .date end -->
+
+                            </div><!-- .right end -->
+                        </div><!-- .inner end -->
+                    </section><!-- .section02 end -->
+
+                    <section class="section03">
+                        <div class="inner">
+                            <div class="title">
+                                <h3>전시</h3>
+                                <a href="#"><img src="img/icon/titlebar.svg" alt=""></a>
+                            </div><!-- .title end -->
+
+                            <div class="tab">
+                                <button>현재전시</button>
+                                <button>예정전시</button>
+                                <button>지난전시</button>
+                            </div><!-- .tab end -->
+
+                            <div class="list">
+
+                                <div class="item">
+                                    <div class="info">
+                                        <div class="top">
+                                            <span>테마전</span>
+                                            <div class="date">
+                                                <p>전시 기간</p>
+                                                <p>|</p>
+                                                <p>2025.05.20 - 2025.12.07</p>
+                                            </div><!-- .date end -->
+                                        </div><!-- .top end -->
+                                        <div class="middle">
+                                            <h2>각角진 백자 이야기</h2>
+                                            <span>조선 17세기,그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+                                                물레로 만든 그릇의 겉면을 팔각八角 내지 드물게 육각六角이나 십각十角으로
+                                                ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서,
+                                                모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보았으면 합니다.</span>
+                                        </div><!-- .middle end -->
+                                        <a href="#" class="bottom">자세히 보기</a>
+                                    </div><!-- .info end -->
+
+                                    <div class="image">
+                                        <div class="swiper img">
+                                            <div class="swiper-wrapper">
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/전시(1).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/전시(2).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/전시(3).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/전시(4).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/전시(5).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+                                            </div><!-- .swiper-wrapper end -->
+
+                                            <div class="swiper-pagination"></div>
+                                        </div><!-- swiper img end -->
+                                    </div><!-- .image end -->
+                                </div><!-- .item end -->
+
+                                <div class="item">
+                                    <div class="info">
+                                        <div class="top">
+                                            <span>테마전</span>
+                                            <div class="date">
+                                                <p>전시 기간</p>
+                                                <p>|</p>
+                                                <p>2025.05.20 - 2025.12.07</p>
+                                            </div><!-- .date end -->
+                                        </div><!-- .top end -->
+                                        <div class="middle">
+                                            <h2>각角진 백자 이야기</h2>
+                                            <span>조선 17세기,그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+                                                물레로 만든 그릇의 겉면을 팔각八角 내지 드물게 육각六角이나 십각十角으로
+                                                ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서,
+                                                모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보았으면 합니다.</span>
+                                        </div><!-- .middle end -->
+                                        <a href="#" class="bottom">자세히 보기</a>
+                                    </div><!-- .info end -->
+
+                                    <div class="image">
+                                        <div class="swiper img">
+                                            <div class="swiper-wrapper">
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/예정전시(1).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/예정전시(2).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/예정전시(3).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/예정전시(4).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+                                            </div><!-- .swiper-wrapper end -->
+
+                                            <div class="swiper-pagination"></div>
+                                        </div><!-- swiper img end -->
+                                    </div><!-- .image end -->
+                                </div><!-- .item end -->
+
+                                <div class="item">
+                                    <div class="info">
+                                        <div class="top">
+                                            <span>테마전</span>
+                                            <div class="date">
+                                                <p>전시 기간</p>
+                                                <p>|</p>
+                                                <p>2025.05.20 - 2025.12.07</p>
+                                            </div><!-- .date end -->
+                                        </div><!-- .top end -->
+                                        <div class="middle">
+                                            <h2>각角진 백자 이야기</h2>
+                                            <span>조선 17세기,그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+                                                물레로 만든 그릇의 겉면을 팔각八角 내지 드물게 육각六角이나 십각十角으로
+                                                ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서,
+                                                모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보았으면 합니다.</span>
+                                        </div><!-- .middle end -->
+                                        <a href="#" class="bottom">자세히 보기</a>
+                                    </div><!-- .info end -->
+
+                                    <div class="image">
+                                        <div class="swiper img">
+                                            <div class="swiper-wrapper">
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(1).jpg.png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(2).jpg.png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(3).png" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(4).jpg" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(5).jpg" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(6).jpg" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                                <div class="swiper-slide">
+                                                    <img src="img/지난전시(8).jpg" alt="img">
+                                                </div><!-- swiper-slide end -->
+
+                                            </div><!-- .swiper-wrapper end -->
+
+                                            <div class="swiper-pagination"></div>
+                                        </div><!-- swiper img end -->
+                                    </div><!-- .image end -->
+                                </div><!-- .item end -->
+                            </div><!-- .list end -->
+
+                        </div><!-- .inner end -->
+                    </section><!-- .section03 end -->
                 </main><!-- .main end -->
-            </section><!-- .section#section1 end -->
+                </section><!-- .section#section1 end -->
 
-        </div><!-- #fullpage end -->
+            </div><!-- #fullpage end -->
 
 
-        <div class="bottom_nav">
+            <div class="bottom_nav">
 
-        </div><!-- .bottom_nav end -->
+            </div><!-- .bottom_nav end -->
 
-        <footer class="footer">
+            <footer class="footer">
 
-        </footer><!-- .footer end -->
-    </div><!-- #wrap end -->
+            </footer><!-- .footer end -->
+        </div><!-- #wrap end -->
 </body>
 
 </html>
